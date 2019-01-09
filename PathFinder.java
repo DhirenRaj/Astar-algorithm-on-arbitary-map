@@ -63,12 +63,7 @@ m[i][j]=1;
 m[j][i]=1;
 }
 }
-//System.out.print(s1);
 System.out.println("Available nodes are :\n"+s2);
-/*
-}
-System.out.println();}*/
-
 
 }catch(Exception e){e.printStackTrace();}
 }
@@ -82,10 +77,6 @@ public void exclu()
      m[j][i]=0;
     }
 }
-/*for(int i=0;i<size;i++){
-for(int j=0;j<size;j++){
-    System.out.print(m[i][j]+" ");}
-    System.out.println();}*/
 }
 public List<Integer> Alternates(int sp)
 {
@@ -95,32 +86,6 @@ public List<Integer> Alternates(int sp)
         alt.add(j);
     return alt;
 }
-/*public void Path(int sp,int ep,List<Integer> visited)
-{
-    try
-     {
-    List<Integer> alt=Alternates(sp,visited);
-    for(int i=0;i< alt.size();i++)
-    {
-        List <Integer> visit= new ArrayList<Integer>();
-        visit.addAll(visited);
-        visit.add(alt.get(i));
-        if(alt.get(i)==ep)
-        {
-            //System.out.println(visit);
-           paths.add(visit);
-        }
-        else
-        {
-            Path(alt.get(i),ep,visit);
-        }
-
-    }
-
-
-    }catch(Exception e){e.printStackTrace();}
-
-}*/
 public void Output()
 {
 
@@ -141,8 +106,6 @@ for(int j=0;j<path.size()-1;j++){
 System.out.println("Total path length "+total);
 System.out.println("-----------------------------------------");
 }
-
-//System.out.close();
     }catch(Exception e){e.printStackTrace();}
 }
 public double distance(int a,int b)
@@ -158,7 +121,6 @@ public double distance(int a,int b)
     f=y2-y1;
     z1=Math.pow(e,2);
     z2=Math.pow(f,2);
-    //System.out.println(x1+" "+y1+" "+x2+" "+y2+" "+e+" "+f+" "+z1+" "+z2+" "+(z1+z2));
     return Math.sqrt((z1+z2));
 }
 public List<Integer> findpath(int [] prev,int current)
@@ -172,12 +134,10 @@ public List<Integer> findpath(int [] prev,int current)
     }
     Collections.reverse(path);
     return (path);
-//return path;
 }
 public void Astar()
 {
    List<Integer> open=new ArrayList<Integer>();
-   //List<double> openvalue=new ArrayList<double>();
      List<Integer> close=new ArrayList<Integer>();
      open.add(spi);
      int [] prev=new int[size];
@@ -192,7 +152,6 @@ public void Astar()
      }
      disttravel[spi]=0;
      estimated[spi]=distance(spi,epi);
-    // openvalue.add(estimated[spi]);
      while(open.size()>0)
      {
          double min=estimated[open.get(0)];
@@ -248,7 +207,6 @@ public void Astar()
              prev[alt.get(i)]=current;
              disttravel[alt.get(i)]=tdisttravel;
              estimated[alt.get(i)]=disttravel[alt.get(i)]+distance(alt.get(i),epi);
-//System.out.println("hi:"+i);
          }
          if(opt==2){
          System.out.print("Possible cities to where to travel:    ");
@@ -265,9 +223,6 @@ public void Astar()
 if(opt==2)
 System.out.println("--------------------------------------------------------------------------------");
      }
-     //for(int i=1;i<size;i++)
-       // System.out.println(s2.get(i)+" : "+s2.get(prev[i]));
-
 
 }
 public static void main(String args[])
@@ -311,8 +266,5 @@ System.out.println("The paths are \n");
     visited.add(spi);
     a.Astar();
     a.Output();
- //System.out.println("Total no of Paths : "+a.paths.size());
-    //System.out.println(c);
-   // System.out.print("open output.txt file to view result");
 }
 }
